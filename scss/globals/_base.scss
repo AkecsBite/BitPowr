@@ -35,14 +35,14 @@ body {
   background-color: map-get($secondary-color, 200);
   width: 100%;
 
-  // .body__container_snap {
-  //   scroll-snap-type: y proximity;
-  //   overflow-y: scroll;
-  // }
+  .body__container_snap {
+    scroll-snap-type: y proximity;
+    overflow-y: scroll;
+  }
 
-  // & section {
-  //   scroll-snap-align: start;
-  // }
+  & section {
+    scroll-snap-align: center;
+  }
 }
 
 main {
