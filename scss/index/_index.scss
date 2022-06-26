@@ -1,0 +1,22 @@
+// global
+@forward "../globals/resets";
+@forward "../globals/base";
+@forward "../globals/variables";
+
+// utility classes
+@forward "../utils/config";
+@forward "../utils/typography";
+@forward "../utils/base-util";
+
+// main layout
+@forward "../layout/header";
+@forward "../layout/hero";
+@forward "../layout/users";
+@forward "../layout/services";
+@forward "../layout/features";
+@forward "../layout/developers";
+@forward "../layout/go-for-bitpowr";
+@forward "../layout/testimonials";
+@forward "../layout/faq";
+@forward "../layout/newsletter";
+@forward "../layout/footer";

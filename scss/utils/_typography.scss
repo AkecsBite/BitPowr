@@ -1,0 +1,7 @@
+@use "../globals/variables" as *;
+
+@each $key, $font-size in $font-sizes {
+  .fs-#{$font-size} {
+    font-size: calc(($font-size) / 10 * 1rem);
+  }
+} ;

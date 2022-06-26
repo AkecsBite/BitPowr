@@ -1,0 +1,120 @@
+@use "../globals/variables" as *;
+@use "../utils/config" as *;
+
+.services__container {
+  margin-block: 15rem;
+  padding: 0 10rem;
+  width: 100%;
+  &_text {
+    margin: 0 auto;
+    max-width: 55%;
+    line-height: 4rem;
+  }
+
+  .services_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 8rem;
+    row-gap: 5rem;
+
+    & p {
+      margin-top: 2.4rem;
+      margin-bottom: 5.6rem;
+      line-height: 4rem;
+    }
+    .wallet-img {
+      justify-self: flex-end;
+      padding: 7.5rem;
+      max-width: 56rem;
+    }
+    .assetMgt_img {
+      padding: 5rem 4rem 6.9rem 6.5rem;
+      justify-self: flex-end;
+      max-width: 56rem;
+    }
+  }
+}
+
+@include responsive(tablet) {
+  .services__container {
+    padding: 0 5rem;
+
+    &_text {
+      max-width: 80%;
+      line-height: 4rem;
+      margin-bottom: 5rem;
+    }
+    .services_grid {
+      row-gap: 10rem;
+      & h2 {
+        font-size: 3.5rem;
+        line-height: 4rem;
+      }
+      & p {
+        margin-top: 2.4rem;
+        margin-bottom: 4rem;
+        line-height: 3.5rem;
+      }
+      .wallet-img {
+        padding: 4rem;
+      }
+      .assetMgt_img {
+        padding: 2rem;
+      }
+    }
+  }
+}
+
+@include responsive(mobile) {
+  .services__container {
+    padding: 0 5rem;
+
+    &_text {
+      max-width: 85%;
+      margin-bottom: 5rem;
+
+      & h1 {
+        font-size: 4rem;
+        line-height: 5rem;
+        margin-bottom: 2rem;
+      }
+      & p {
+        font-size: 2.4rem;
+        line-height: 3.5rem;
+      }
+    }
+    .services_grid {
+      grid-template-columns: 1fr;
+      row-gap: 10rem;
+      & button {
+        padding: 1.6rem 6.4rem;
+      }
+      & h2 {
+        font-size: 3.2rem;
+        line-height: 3rem;
+      }
+      & p {
+        margin-top: 1rem;
+        margin-bottom: 4rem;
+        line-height: 3.5rem;
+        font-size: 2.4rem;
+      }
+
+      .services_wallet_text {
+        text-align: right;
+        grid-row: 1/2;
+      }
+      .wallet-img {
+        max-width: 30rem;
+        padding: 0;
+        justify-self: center;
+      }
+      .assetMgt_img {
+        max-width: 40rem;
+        padding: 0;
+        justify-self: center;
+      }
+    }
+  }
+}

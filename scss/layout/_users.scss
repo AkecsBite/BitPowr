@@ -1,0 +1,53 @@
+@use "../globals/variables" as *;
+@use "../utils/config" as *;
+@use "../utils/base-util" as *;
+
+.customer__container {
+  width: 100%;
+
+  .customer_companies {
+    @include flex(row, space-between, center);
+    margin: 6.4rem 15rem 0;
+  }
+  .customer_data {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-rows: 1fr;
+    place-items: center;
+    padding: 4rem 18rem;
+    margin-top: 15rem;
+    background: radial-gradient(
+        hsla(221, 86%, 64%, 1),
+        hsla(221, 86%, 36%, 0.89)
+      ),
+      url(../../img/users-vector-bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &--flex {
+      @include flex(row, center, center);
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      gap: 0.6rem;
+
+      & h2 {
+        line-height: 8rem;
+      }
+    }
+  }
+}
+
+@include responsive(tablet) {
+  .customer__container {
+    .customer_companies {
+      @include flex(row, center, center);
+      flex-wrap: wrap;
+      gap: 5rem;
+      margin: 6rem 15rem 0rem;
+
+      .customer-img {
+        min-width: 10rem;
+      }
+    }
+  }
+}

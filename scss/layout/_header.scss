@@ -1,0 +1,196 @@
+@use "../globals/variables" as *;
+@use "../utils/config" as *;
+@use "../utils/base-util" as *;
+
+header {
+  position: fixed;
+  width: 100%;
+  padding: 1.5rem 10rem;
+  z-index: 5;
+  top: 0;
+  left: 0;
+
+  @include flex(row, flex-start, center);
+  gap: 4rem;
+
+  &.header_background {
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.25);
+    @include transition(all);
+  }
+
+  .nav__bar {
+    width: 100%;
+
+    &_ul {
+      width: 100%;
+      @include flex(row, space-between, center);
+      gap: 4rem;
+
+      & .mx-auto {
+        margin-right: auto;
+      }
+    }
+
+    &-links:not(button) {
+      display: inline-block;
+      text-transform: capitalize;
+      font-size: 1.8rem;
+      color: map-get($primary-color, 400);
+      line-height: 2.8rem;
+      font-weight: 600;
+      position: relative;
+      @include transition(all);
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 0.3rem;
+        transform: scale(0);
+        transform-origin: right;
+        background: map-get($primary-color, 100);
+        @include transition(transform);
+      }
+      &:hover::after {
+        transform: scale(1);
+        transform-origin: left;
+      }
+      &:hover {
+        transform: scale(0.9);
+        transform-origin: right;
+      }
+    }
+  }
+
+  .menu__btn {
+    display: none;
+    position: absolute;
+    right: 5rem;
+    top: 2.5rem;
+    height: 3rem;
+    width: 3rem;
+    cursor: pointer;
+    @include transition(all);
+
+    &_burger {
+      @extend .burger_menu;
+      right: 0;
+      top: 1.15rem;
+
+      &::before {
+        @extend .burger_menu;
+        content: "";
+        top: 0.8rem;
+        width: 2.2rem;
+      }
+      &::after {
+        @extend .burger_menu;
+        content: "";
+        bottom: 0.8rem;
+      }
+      &.open {
+        transform: rotate(360deg);
+        background: transparent;
+
+        &::before {
+          width: 3rem;
+          transform: rotate(-45deg) translate(0.2rem, -0.5rem);
+          background: map-get($primary-color, 500);
+        }
+
+        &::after {
+          transform: rotate(45deg) translate(0.6rem, 0.9rem);
+          width: 3rem;
+          background: map-get($primary-color, 500);
+        }
+      }
+    }
+  }
+}
+
+@include responsive(tablet) {
+  header {
+    padding: 2rem 5rem;
+
+    &.header_background {
+      background-color: hsl(0, 0%, 100%);
+      box-shadow: 0px 1px 5px 1px rgba(59, 59, 211, 0.3);
+      transition: background-color 150ms ease-in-out;
+    }
+    .nav__bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      visibility: hidden;
+
+      &.open {
+        visibility: visible;
+      }
+
+      &_ul {
+        @include flex(column, center, center);
+        @include transition(background-color);
+        background-color: hsla(0, 0%, 100%, 0.9);
+        gap: 4rem;
+        height: 100vh;
+        transform: translateX(100%);
+        @include transition(all);
+
+        & .mx-auto {
+          margin-right: 0;
+        }
+        &.open {
+          transform: translateX(0);
+        }
+      }
+
+      &-item {
+        transform: translateX(100vw);
+        @include transition(all);
+
+        &.open {
+          transform: translateX(0);
+
+          @for $nav-link from 1 through 7 {
+            &:nth-child(#{$nav-link}) {
+              transition-delay: ($nav-link * 0.1s) + 0.2s;
+            }
+          }
+        }
+      }
+
+      &-links:not(button) {
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        color: map-get($primary-color, 400);
+        line-height: 2.8rem;
+        font-weight: 600;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 3rem;
+          height: 0.5rem;
+        }
+      }
+    }
+    .menu__btn {
+      display: block;
+    }
+  }
+}
+
+@include responsive(mobile) {
+  header {
+    padding: 2rem 5rem;
+
+    .menu__btn {
+      display: block;
+    }
+  }
+}

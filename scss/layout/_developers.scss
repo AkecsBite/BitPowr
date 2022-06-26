@@ -1,0 +1,64 @@
+@use "../globals/variables" as *;
+@use "../utils/config" as *;
+
+.dev__container {
+  background-color: map-get($secondary-color, 500);
+  @include flex(row, center, center);
+  padding: 10rem;
+  margin: 5rem 0 12rem 0;
+  gap: 4rem;
+  &_text {
+    max-width: 58rem;
+
+    & > p {
+      margin: 1.6rem 0 4rem 0;
+      line-height: 3.2rem;
+    }
+    .dev_text_flex {
+      @include flex(row, space-between, center);
+      max-width: 70%;
+      &-icon {
+        @include flex(row, center, center);
+        gap: 1.6rem;
+      }
+    }
+  }
+}
+
+@include responsive(tablet) {
+  .dev__container {
+    gap: 2rem;
+    padding: 10rem 5rem;
+
+    &_text {
+      max-width: 45%;
+    }
+
+    .dev_text_flex {
+      max-width: 80%;
+    }
+  }
+}
+
+@include responsive(mobile) {
+  .dev__container {
+    @include flex(column, center, center);
+    gap: 4rem;
+
+    &_text {
+      max-width: 90%;
+      text-align: center;
+    }
+
+    .dev_text_flex {
+      @include flex(row, center, center);
+      max-width: 100%;
+      flex-wrap: wrap;
+      gap: 2rem;
+
+      &-icon {
+        gap: 1rem;
+      }
+    }
+  }
+}

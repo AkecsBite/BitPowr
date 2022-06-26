@@ -1,0 +1,19 @@
+@use "../globals/variables" as *;
+@use "../utils/responsive" as *;
+
+@mixin responsive($screen-size) {
+  @media (max-width: map-get($breakpoints, $screen-size)) {
+    @content;
+  }
+}
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin transition($transition-property) {
+  transition: $transition-property 0.9s ease-in-out;
+}

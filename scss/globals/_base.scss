@@ -1,0 +1,54 @@
+@use "../utils/responsive" as *;
+@use "../utils/config" as *;
+@use "variables" as *;
+
+* {
+  outline: none;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialised;
+  text-decoration: none;
+}
+
+html {
+  font-size: calc(100vw / 1499 * 10);
+  padding: 0%;
+  margin: 0%;
+  height: 100%;
+  scroll-padding-top: 10rem;
+  @include responsive(tablet) {
+    font-size: calc(100vw / 950 * 10);
+  }
+  @include responsive(mobile) {
+    font-size: calc(100vw / 650 * 10);
+  }
+  @include responsive(sm-mobile) {
+    font-size: calc(100vw / 485 * 10);
+  }
+}
+
+body {
+  line-height: 1.1;
+  margin: 0;
+  scroll-behavior: smooth;
+  font-family: $primary-font-family;
+  background-color: map-get($secondary-color, 200);
+  width: 100%;
+
+  // .body__container_snap {
+  //   scroll-snap-type: y proximity;
+  //   overflow-y: scroll;
+  // }
+
+  // & section {
+  //   scroll-snap-align: start;
+  // }
+}
+
+main {
+  top: 6rem;
+}
+
+// * {
+//   background: rgba(0, 100, 0, 0.1) !important;
+// }

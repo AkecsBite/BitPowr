@@ -1,0 +1,101 @@
+@use "../globals/variables" as *;
+@use "../utils/config" as *;
+
+.go-for-bitpowr__container {
+  position: relative;
+  padding-inline: 13.9rem;
+
+  .go-for-bitpowr_img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+  .go-for-bitpowr_text {
+    padding-block: 15rem;
+    margin: 0 auto;
+
+    & > h1 {
+      margin-top: 12rem;
+    }
+
+    & > p {
+      max-width: 58%;
+      line-height: 2.7rem;
+      margin: 2.4rem auto 5.6rem;
+    }
+    .go-for-bitpowr_btn {
+      @include flex(row, center, center);
+      gap: 1.6rem;
+    }
+  }
+}
+
+@include responsive(tablet) {
+  .go-for-bitpowr__container {
+    .go-for-bitpowr_text {
+      width: 100%;
+      & > h1 {
+        margin-top: 2.5rem;
+        font-size: 3.5rem;
+      }
+      & > p {
+        max-width: 75%;
+        line-height: 2.7rem;
+        margin: 2.4rem auto 5.6rem;
+      }
+    }
+  }
+}
+
+@include responsive(mobile) {
+  .go-for-bitpowr__container {
+    overflow: hidden;
+    padding-inline: 5rem;
+    .go-for-bitpowr_img {
+      width: 120%;
+    }
+    .go-for-bitpowr_text {
+      padding-block: 10rem;
+
+      & > h1 {
+        margin-top: 5rem;
+        font-size: 3.5rem;
+      }
+      & > p {
+        max-width: 90%;
+        line-height: 2.7rem;
+        margin: 2.4rem auto 5.6rem;
+      }
+
+      .go-for-bitpowr_btn {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+@include responsive(sm-mobile) {
+  .go-for-bitpowr__container {
+    .go-for-bitpowr_img {
+      width: 120%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .go-for-bitpowr_text {
+      padding-block: 10rem;
+
+      & > h1 {
+        margin-top: 3rem;
+        font-size: 3rem;
+      }
+      & > p {
+        line-height: 2.5rem;
+        margin: 2rem auto 5.6rem;
+      }
+    }
+  }
+}

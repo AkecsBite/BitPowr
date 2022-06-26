@@ -1,0 +1,14 @@
+//define breakpoints for all screen sizes
+
+$breakpoints: (
+  "xxsm-mobile": 350px,
+  "xsm-mobile": 380px,
+  "sm-mobile": 485px,
+  "mobile": 650px,
+  "sm-tablet": 700px,
+  "md-tablet": 770px,
+  "tablet": 950px,
+  "lg-tablet": 1025px,
+  "sm-desktop": 1200px,
+  "desktop": 1366px,
+);
