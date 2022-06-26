@@ -37,18 +37,14 @@ body {
 
   .body__container_snap {
     scroll-snap-type: y proximity;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   & section {
-    scroll-snap-align: center;
+    scroll-snap-align: start;
   }
 }
 
 main {
   top: 6rem;
 }
-
-// * {
-//   background: rgba(0, 100, 0, 0.1) !important;
-// }

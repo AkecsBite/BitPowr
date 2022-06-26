@@ -55,12 +55,12 @@ heroObserver.observe(hero);
 
 function scrollr(){
 var right = document.querySelector('.testimonial_cardlist');
-right.scrollBy(-230, 0);
+right.scrollBy(-266, 0);
 }
 
 function scrolll(){
   var left = document.querySelector('.testimonial_cardlist');
-left.scrollBy(230, 0);
+left.scrollBy(266, 0);
 
 }
 
